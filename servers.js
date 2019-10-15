@@ -28,15 +28,15 @@ app.get('/movies',(req, res) => {
 
    
     if (req.query.genre) {
-        response = MOVIES.filter(movie => movie.genre.toLowerCase().includes(req.query.genre.toLowerCase()));
+        response = response.filter(movie => movie.genre.toLowerCase().includes(req.query.genre.toLowerCase()));
     }
 
     if (req.query.country) {
-        response = MOVIES.filter(movie => movie.country.toLowerCase().includes(req.query.country.toLowerCase()));
+        response = response.filter(movie => movie.country.toLowerCase().includes(req.query.country.toLowerCase()));
     }
 
     if (req.query.avg_vote) {
-        response = MOVIES.filter(movie => movie.avg_vote >= req.query.avg_vote);
+        response = response.filter(movie => movie.avg_vote >= req.query.avg_vote);
     }
 
     res.json(response);
